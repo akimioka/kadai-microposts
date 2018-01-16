@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-@if (Auth::check())
+    @if (Auth::check())
         <div class="row">
             <aside class="col-xs-4">
                 {!! Form::open(['route' => 'microposts.store']) !!}
@@ -18,11 +18,11 @@
             </div>
         </div>
     @else
-    <div class="center jumbotron">
-        <div class="text-center">
-            <h1>Welcome to the Microposts</h1>
-            {!! link_to_route('signup.get', 'Sign up now!', null, ['class' => 'btn btn-lg btn-primary']) !!}
+        <div class="center jumbotron">
+            <div class="text-center">
+                <h1>Welcome to the Microposts</h1>
+                {!! link_to_route('signup.get', 'Sign up now!', null, ['class' => 'btn btn-lg btn-primary']) !!}
+            </div>
         </div>
-    </div>
     @endif
 @endsection
