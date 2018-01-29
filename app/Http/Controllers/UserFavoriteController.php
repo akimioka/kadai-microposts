@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
-class UserFollowController extends Controller
+class UserFavoriteController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,8 +16,7 @@ class UserFollowController extends Controller
      */
     public function index()
     {
-       \Auth::user()->follow($id);
-        return redirect()->back(); //
+        //
     }
 
     /**
@@ -27,8 +26,7 @@ class UserFollowController extends Controller
      */
     public function create()
     {
-        \Auth::user()->unfollow($id);
-        return redirect()->back();//
+        //
     }
 
     /**
@@ -37,10 +35,10 @@ class UserFollowController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-     public function store(Request $request, $id)
+    public function store(Request $request, $id)
     {
-        \Auth::user()->follow($id);
-        return redirect()->back();
+       \Auth::user()->favorite($id);
+        return redirect()->back(); //
     }
 
     /**
@@ -51,7 +49,7 @@ class UserFollowController extends Controller
      */
     public function show($id)
     {
-        //
+       //
     }
 
     /**
@@ -85,7 +83,7 @@ class UserFollowController extends Controller
      */
     public function destroy($id)
     {
-       \Auth::user()->unfollow($id);
-        return redirect()->back(); //
+        \Auth::user()->unfavorite($id);
+        return redirect()->back(); ////
     }
 }
